@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
+    <title>第四天</title>
+    <!-- 通过动态设置meta标签控制缩放比例达到自适应 -->
+    <!-- js代码 -->
+    <script>
+        layout();
+        window.addEventListener('resize', layout);
+        function layout() {
+            const width = window.screen.width; //屏幕宽度，【iphone6/7/8的屏幕宽度是375】
+            console.log(width); //375
+            const fixWidth = 750; //UI设计稿的宽度
+            const scale = width / fixWidth; //缩放比例
+            console.log(scale); // 0.5
+            const meta = document.createElement('meta'); //创建meta标签
+            meta.setAttribute('name', 'viewport');
+            meta.setAttribute('content', 'width=' + 750 + ', initial-scale=' + scale + ', maximum-scale=' + 
+            scale + ', user-scalable=no'); //设置用户不可以缩放
+            document.head.append(meta); //挂载meta标签
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            background-color: aquamarine;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">hello world!</div>
+</body>
+</html>

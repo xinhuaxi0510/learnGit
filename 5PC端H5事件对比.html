@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第五天</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            width: 200px;
+            height: 200px;
+            background-color: bisque;
+        }
+    </style>
+</head>
+<body>
+    <!-- PC端事件包含：
+        1、onclick鼠标点击触发
+        2、PC端拖拽包含
+            onmousedown鼠标按下触发
+            onmousemove鼠标移动触发
+            onmouseup鼠标抬起触发
+        3、移动端拖拽包含
+            ontouchstart手指按下触发
+            ontouchmove手指移动触发
+            ontouchend手指抬起触发
+     -->
+    <div id="box"></div>
+    <script>
+        let box = document.querySelector('#box');
+        // PC端
+        box.onmousedown = function(event) {
+            console.log('pc按下')
+            box.onmousemove = function(event) {
+                console.log('pc移动')
+            }
+            box.onmouseup = function(event) {
+                console.log('pc抬起')
+                // 鼠标抬起时，只要鼠标在div块中移动还是会打印“pc移动”
+                // 此时需要清除移动与抬起事件
+                box.onmousemove = box.onmouseup = null;
+            }
+        }
+        // 移动端H5事件采用事件监听addEventListener，“因为通过on的方式添加touch事件，在谷歌浏览器下是无效的。但是在火狐浏览器下有效”
+        // 同时，事件监听addEventListener对于同一个事件是“都会执行”的，而通过on方式添加同一个touch事件是会“被覆盖”的，只执行“最后一个事件”。
+        box.addEventListener('touchstart', function(event) {
+            console.log('手指按下')  //执行了
+        })
+        box.addEventListener('touchstart', function(event) {
+            console.log('手指已经按下了') //执行了
+        })
+        box.addEventListener('touchmove', function(event) {
+            console.log('手指移动')
+        })
+        box.addEventListener('touchend', function(event) {
+            console.log('手指抬起')
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第三天</title>
+    <!-- js代码 -->
+    <script>
+        remChange(); //调用方法
+        window.addEventListener('resize', remChange); //监听事件
+        function remChange() {
+            const html = document.querySelector('html'); /*获取html元素*/
+            const width = html.getBoundingClientRect().width; //getBoundingClientRect()方法获得页面中某个元素的上下左右分别相对于浏览器视窗的位置
+            // getBoundingClientRect().width 获取元素的内容宽，其实获取的是浏览器页面宽度
+            html.style.fontSize = width / 10 + 'px'; //根据页面宽度动态改变根字体大小，1rem大小
+        }
+    </script>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        #box {
+            width: 10rem;
+            height: calc(10rem / 5); /* calc()动态计算长度值 */
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <div id="box">hello world!</div>  <!-- div宽度默认占一整行 -->
+</body>
+</html>

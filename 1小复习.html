@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第一天</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            width: 400px; /*这个400px是根据2张图片的宽度算出来的，也可以不计算宽度，随便设置一个宽度*/
+            margin: auto; /*水平居中*/
+        }
+        ul li {
+            float: left; /*左浮*/
+            width: 50%; /*每个li元素的宽度占ul列表的一半。因为一共2张图片*/
+            list-style: none; /*去除ul列表前面的小圆点*/
+        }
+        ul li img {
+            width: 100%; /*每张图片占满li元素的宽度，相当于每张图片200px*/
+            height: 200px; /*因为两张图片高度不等，所以这里设置了统一高度*/
+        }
+    </style>
+</head>
+<body>
+    <ul>
+        <li><img src="./images/1.jpg" alt=""></li>
+        <li><img src="./images/2.jpg" alt=""></li>
+    </ul>
+</body>
+</html>

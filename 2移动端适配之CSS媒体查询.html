@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>第二天</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+        html {
+            /* 根字体大小就是1rem，默认值是16px */
+            font-size: 100px; /*1rem = 100px，根字体大小*/
+        }
+        /* 适配布局，也叫响应式布局 */
+        /* CSS媒体查询，标签是@media，在不支持CSS媒体查询的浏览器里，会被解析为screen宽度 */
+        @media screen and (min-width: 320px) and (max-width: 375px) { /*宽度在[320px,375px)之间显示元素样式*/
+            #box {
+                font-size: .2rem; /*.2rem = 20px*/
+                width: 1rem;
+                height: 1rem;
+                background-color: red;
+            }
+        }
+        @media screen and (min-width: 375px) and (max-width: 414px) { /*宽度在[375px,414px)之间显示元素样式*/
+            #box {
+                font-size: .4rem; /*.4rem = 40px*/
+                width: 2rem;
+                height: 2rem;
+                background-color: green;
+            }
+        }
+        /* 980px是默认视口的宽度 */
+        @media screen and (min-width: 414px) and (max-width: 980px) { /*宽度在[414px,980px)之间显示元素样式*/
+            #box {
+                font-size: .6rem; /*.6rem = 60px*/
+                width: 3rem;
+                height: 3rem;
+                background-color: blue;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="box">hello world!</div>
+</body>
+</html>
